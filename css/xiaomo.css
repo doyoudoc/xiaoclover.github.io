@@ -58,6 +58,11 @@ html {
   background-repeat: no-repeat;
 }
 
+/* live2D */
+.pio-action {
+  display:none !important;
+} 
+
 #aside-content .card-info .card-info-data {
   display: none;
 }
@@ -190,6 +195,13 @@ html {
 #nav #site-name:hover,
 .nav_left .back-menu-list-groups .back-menu-list-group .back-menu-item:hover {
   background: #48c0a3;
+}
+#search-button .search {
+  font-size: 18px;
+}
+#nav .menus {
+  font-weight: bold;
+  font-size: 18px;
 }
 
 @media screen and (min-width: 900px) {
@@ -334,9 +346,11 @@ html {
   width: fit-content;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: -1.5rem;
+  margin-top: -0.4rem;
 }
-
+#page-header.not-top-img #nav a {
+  font-size: 1rem;
+}
 #nav .menus_items .menus_item:hover .menus_item_child {
   display: flex;
 }
@@ -344,11 +358,12 @@ html {
 /* 这里的2是代表导航栏的第二个元素，即有子菜单的元素，可以按自己需求修改 */
 .menus_items .menus_item:nth-child(1) .menus_item_child,
 .menus_items .menus_item:nth-child(2) .menus_item_child,
-.menus_items .menus_item:nth-child(3) .menus_item_child,
 .menus_items .menus_item:nth-child(4) .menus_item_child {
   left: -136px;
 }
-
+.menus_items .menus_item:nth-child(3) .menus_item_child{
+  left: -207px;
+}
 #nav .menus_items .menus_item .menus_item_child {
   background: #ebf2ed;
 }
@@ -393,7 +408,10 @@ html {
 #recent-posts>.recent-post-item {
   height: 13rem;
 }
-
+/* 文章标题位置调整 */
+#page-header #post-info {
+  padding: 2rem 8%;
+}
 /* 右侧小按钮圆角 */
 #rightside>div>button,
 #to_comment {
@@ -567,6 +585,224 @@ button#go-up span {
   font-size: 12px !important;
   margin-right: -1px;
 }
+/* homeTop */
+/* 首页自定义顶部样式 */
+.hometop-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 12px;
+  margin-bottom: 12px;
+}
+.hometop-group .hometop-item {
+  height: 100px;
+  line-height: 100px;
+  border-radius: 12px;
+  transition: .3s;
+  transition-timing-function: ease-in-out;
+  overflow: hidden;
+}
+.hometop-group .hometop-item:nth-child(1){
+  background: linear-gradient(to right,#2f80ed,#56ccf2);
+}
+.hometop-group .hometop-item:nth-child(2){
+  background: linear-gradient(to right,#f12711,#f5af19);
+}
+.hometop-group .hometop-item:nth-child(3){
+  background: linear-gradient(to right,#009688,#8bc34a);
+}
+.hometop-group .hometop-item:nth-child(4){
+  background: linear-gradient(to right,#607d8b,#9e9e9e);
+}
+@media (max-width: 620px) {
+  .hometop-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 12px;
+    margin-bottom: 12px;
+  }
+}
+.hometop-group .hometop-item .hometop-button {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--xiaomo-white);
+  transition: all .4s cubic-bezier(.39,.575,.565,1);
+  transform: scale(1);
+}
+
+.hometop-group .hometop-item .hometop-button span {
+  padding-left: 25px;
+}
+.hometop-group .hometop-item .hometop-button i{
+  font-size: 4rem;
+  opacity: .4;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  transition: .3s;
+}
+.hometop-group .hometop-item .hometop-button span:after{
+  top: 66px;
+  width: 1.2rem;
+  left: 25px;
+  height: 2px;
+  background: var(--xiaomo-white);
+  content: "";
+  border-radius: 1px;
+  position: absolute;
+  transition: .3s;
+}
+.hometop-group .hometop-item:hover .hometop-button span:after{
+  width: 3rem;
+}
+.hometop-group .hometop-item:hover .hometop-button i {
+  transform: scale(1.1);
+}
+/************************************************* 个人资料卡片 *************************************************/
+/* #aside-content > .card-widget:first-child {
+  background: #fff url(https://image.anzhiy.cn/adminuploads/1/2022/10/26/6358a07bf21fc.webp) top -24% center no-repeat;
+} */
+
+[data-theme=dark] #aside-content>.card-widget:first-child {
+  background: #121212 !important
+}
+
+#aside-content>.card-widget.card-info>#card-info-btn {
+  border-radius: 10px;
+}
+
+.card-widget .author-info-top {
+  margin: 15px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.card-widget .card-info-avatar {
+  display: inline-block;
+  position: relative;
+}
+
+.card-info-avatar .avatar-img {
+  width: 108px;
+  height: 108px;
+  display: block;
+}
+
+.avatar-img img {
+  border: 4px solid #f7f9fe;
+  border-radius: 50%;
+}
+
+.card-info-avatar .author-status-box {
+  position: absolute;
+  bottom: 0;
+  left: calc(100% - 28px);
+  width: 28px;
+  height: 28px;
+  border: 1px solid #d0d7de;
+  border-radius: 2em;
+  background-color: #fff;
+  transition: .3s;
+  overflow: hidden;
+}
+
+.card-info-avatar .author-status-box .author-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 5px;
+}
+
+.card-info-avatar .author-status-box:hover {
+  width: 105px
+}
+
+.card-info-avatar .author-status-box:hover .author-status span {
+  width: 105px;
+  margin-left: 4px;
+}
+
+.card-info-avatar .author-status-box .author-status span {
+  width: 0;
+  font-size: 12px;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: .3s;
+}
+
+div#author-info__sayhi {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-highlight-color);
+  border: 2px solid #e0e3ed;
+  font-size: 15px;
+  margin-right: auto;
+  padding: 5px 8px;
+  border-radius: 12px;
+  width: fit-content;
+  display: inline;
+  margin-left: -2px;
+}
+
+.card-widget .author-info__name {
+  line-height: 1.5em;
+  margin: 5px 0 4px;
+}
+
+#aside-content .card-info .author-info__description {
+  margin-top: -0.42em;
+  margin-left: 0.09em;
+}
+
+.card-widget.card-info .banner-button-group {
+  margin: 15px 0 0;
+  display: flex;
+}
+
+#aside-content .card-info .banner-button {
+  height: 40px;
+  width: 100%;
+  margin-right: unset !important;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.card-widget.card-info .banner-button-group .banner-button {
+  padding: 20px 12px;
+  background: #3b70fc;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  transition: all .3s ease 0s;
+  cursor: pointer;
+}
+
+#aside-content > div.animate__fadeIn.card-info.card-widget.wow > h1 {
+  font-weight: bold;
+  font-size: 1.57em;
+}
+
+#aside-content > div.animate__fadeIn.card-info.card-widget.wow > div.banner-button-group > a > span {
+  color: #fff;
+  font-weight: unset;
+}
+.card-widget.card-info .banner-button-group .banner-button .fa-solid.fa-circle-chevron-right {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.card-widget.card-info .banner-button-group .banner-button:hover {
+  background: #1856fb;
+  color: #fff;
+}
+/************************************************* 个人资料卡片 *************************************************/
 
 /* 鼠标滑动到按钮上时显示返回顶部图标 */
 button#go-up:hover i {
@@ -612,11 +848,12 @@ button#go-up:hover #percent {
   #pagination.pagination-post {
     margin-bottom: 20px;
   }
-
+  #footer-bottom .footer-bottom-right a {
+    display: none;
+  }
   #aside-content {
     margin-bottom: 0.5rem;
   }
-
   /* 测试中 */
   #bbTimeList {
     margin-top: 0;
@@ -642,7 +879,7 @@ button#go-up:hover #percent {
   }
 
   #menus {
-    margin-right: 7px;
+    margin-right: 10px;
   }
 
   #nav .nav_left {
@@ -666,7 +903,6 @@ button#go-up:hover #percent {
   #nav #toggle-menu {
     margin-right: 5px;
   } */
-
   .post-copyright {
     display: none;
   }
